@@ -14,19 +14,17 @@
 
   <!-- NAVBAR with Bootstrap -->
     <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand"href="#">Crypto News Giopp</a>
+      <a class="navbar-brand"href="{% url 'home' %}">Crypto News Giopp</a>
 
         <ul class="nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link active" href="#">Active</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link active" href="{% url 'prices' %}">Lookup Prices</a>
           </li>
         </ul>
 
-      <form class="form-inline">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <form class="form-inline my-2 my-lg-0" method="POST" action="{% url 'prices' %}">
+        {% csrf_token %}
+        <input class="form-control mr-sm-2" type="search" placeholder="Lookup Crypto" aria-label="Search" name="quote">
         <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
       </form>
       
